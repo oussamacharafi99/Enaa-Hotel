@@ -4,6 +4,7 @@ public class Rooms {
 	
 	private Integer id;
 	private String Taille;
+	private Integer n_person;
 	private Integer prix;
 	private Boolean dispo;
 
@@ -35,12 +36,19 @@ public class Rooms {
 	public Rooms() {
 		
 	}
-	public Rooms(Integer id, String taille, Integer prix, Boolean dispo) {
+	public Rooms(Integer id, String taille, Integer n_person , Integer prix, Boolean dispo) {
 		
 		this.id = id;
 		this.Taille = taille;
+		this.n_person = n_person;
 		this.prix = prix;
 		this.dispo = dispo;
+	}
+	public Integer getN_person() {
+		return n_person;
+	}
+	public void setN_person(Integer n_person) {
+		this.n_person = n_person;
 	}
 	
 

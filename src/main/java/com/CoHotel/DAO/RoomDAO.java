@@ -5,6 +5,7 @@ import java.util.List;
 import com.CoHotel.Classes.Rooms;
 
 public interface RoomDAO {
+	
 	public List<Rooms> afficher() throws SQLException, ClassNotFoundException;
 	public void modifier();
 	void ajouter(Rooms room);

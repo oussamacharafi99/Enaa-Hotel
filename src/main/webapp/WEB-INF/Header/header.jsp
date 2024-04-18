@@ -1,9 +1,10 @@
 <section class="container">
-<header class="navbar navbar-expand-md py-5 ">
+<header class="navbar navbar-expand-md">
 <div class="container">
 
 <div class="navbar-brand">
-		<h3>oussama</h3>
+		<h3><img id="logo" src="https://i.ibb.co/SKJ0mQr/Dolphin-s.png" alt="5" ></h3>
+		
 </div>
 
 <button class="navbar-toggler" type="button" data-bs-target="#mainMenu" data-bs-toggle="collapse">
@@ -15,6 +16,8 @@
 	<li class="nav-item"><a class="nav-link" href="" id="a1">Home</a></li>
 	<li class="nav-item"><a class="nav-link" href="">About</a></li>
 	<li class="nav-item"><a class="nav-link" href="">Contact</a></li>
+	<button class="nav-item" id="button">Register</button>
+	<button class="nav-item" id="button">Login</button>
 </ul>
 
 
@@ -34,12 +37,30 @@
 			margin:0 3px ;
 			transition:.6s;
 			cursor:pointer;
-			color:#D9FFEF;
-			font-size:18px;
-			font-weight:800;
+			color:#black;
+			font-size:16px;
+			font-weight:600;
 		}
 		.nav-link:hover,#a1{
-			border-bottom: 5px solid #D9FFEF;
-			color:white;
+			border-bottom: 5px solid black;
+			color:orangered;
+		}
+		#logo{
+			width:110px;
+		}
+		#button{
+			border-radius:5px;
+			background: transparent;
+			border:1px solid black;
+			color:orangered;
+			margin:0 3px;
+			cursor:pointer;
+			transition: .6s;
+			font-weight:700;
+		}
+		#button:hover{
+			background:black;
+			color:orangered;
+			font-weight:700;
 		}
 </style>
