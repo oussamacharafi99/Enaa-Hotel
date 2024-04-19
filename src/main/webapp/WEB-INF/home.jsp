@@ -273,7 +273,7 @@
     		</div>
     		<div class="buttons">
     			
-    			<a href="ReserveS?id=${r.getId()}">Reserve</a>
+    			<a href="ReserveS?img=${r.getImg()}&id=${r.getId()}">Reserve</a>
     			
     		</div>
     	</div>

@@ -11,7 +11,15 @@
 <%@ include file="/WEB-INF/Header/header.jsp" %>
 
 <h1>Ajouter reservation</h1>
-<h2>${id}</h2>
+<!-- <img src="${img}">
+ -->
+ <form action="ReserveS" method="POST">
+<input type="number" name="idRoom" value="${id}"/>
+<input type="text" name="dateD"/>
+<input type="text" name="dateF"/>
+<input type="text" name="nameC"/>
+<input type="submit" />
+</form>
 
 </body>
 </html>
