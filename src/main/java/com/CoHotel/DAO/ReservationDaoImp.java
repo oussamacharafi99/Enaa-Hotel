@@ -1,5 +1,6 @@
 package com.CoHotel.DAO;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +25,7 @@ public class ReservationDaoImp implements ReservationDAO {
 			ResultSet resultat = statement.executeQuery("SELECT * FROM reservation");
 		    while (resultat.next()) {
 		        Integer idR = resultat.getInt("id");
-		        Integer idRoom = resultat.getInt("id_room");
+		        String idRoom = resultat.getString("id_room");
 		        String dateD = resultat.getString("date_entrer");
 		        String dateF = resultat.getString("date_sortie");		   
 		        String nameC = resultat.getString("name_client");
@@ -44,8 +45,8 @@ public class ReservationDaoImp implements ReservationDAO {
 		
         
         try {
-        	PreparedStatement preparedStatement = db.connexion.prepareStatement("INSERT INTO reservation() VALUES(?, ?, ?);");
-        	preparedStatement.setInt(1, res.getIdRoom());
+        	PreparedStatement preparedStatement = db.connexion.prepareStatement("INSERT INTO reservation(id_room , date_entrer, date_sortie , name_client  ) VALUES(?, ?, ? , ?);");
+        	preparedStatement.setString(1, res.getIdRoom());
         	preparedStatement.setString(2, res.getDateD());
         	preparedStatement.setString(3, res.getDateF());
         	preparedStatement.setString(4, res.getNameC());
