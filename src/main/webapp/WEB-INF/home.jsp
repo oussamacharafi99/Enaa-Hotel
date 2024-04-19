@@ -177,6 +177,7 @@
     	flex-wrap:wrap;  
     	justify-content:space-around ;
     	margin: 5px auto;
+    	margin-top:20px;
     }
     .content > h6{
     	padding:7px;
@@ -185,13 +186,21 @@
     	border-radius:8px;
     }
     .buttons{
+    	padding:10px;
     }
     .buttons > a{
     	padding:7px 15px;
-    	border:1px solid black;
+    	border:2px solid black;
     	border-radius:8px;
     	background:transparent;
     	color:orangered;
+    	text-decoration:none;
+    	transition:.6s;
+    }
+    .buttons > a:hover{
+    	margin-top:10px;
+    	color:black;
+    	border:2px solid orangered;
     }
     
 </style>
