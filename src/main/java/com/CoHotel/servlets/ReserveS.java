@@ -19,12 +19,18 @@ public class ReserveS extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		if(!id.isBlank()) {
+		request.setAttribute("id", id);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterReserve.jsp").forward(request, response);
-		
+		}
+		else {
+			System.out.println("not working !");
+		}
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterReserve.jsp").forward(request, response);
 	}
 
 }

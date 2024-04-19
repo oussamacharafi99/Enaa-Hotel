@@ -186,7 +186,7 @@
     }
     .buttons{
     }
-    .buttons > button{
+    .buttons > a{
     	padding:7px 15px;
     	border:1px solid black;
     	border-radius:8px;
@@ -264,7 +264,8 @@
     		</div>
     		<div class="buttons">
     			
-    			<button href="ajouterReserve?id=${r.getId()}">Reserve</button>
+    			<a href="ReserveS?id=${r.getId()}">Reserve</a>
+    			
     		</div>
     	</div>
 		</c:forEach>

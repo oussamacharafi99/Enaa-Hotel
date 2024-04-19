@@ -11,6 +11,7 @@
 <%@ include file="/WEB-INF/Header/header.jsp" %>
 
 <h1>Ajouter reservation</h1>
+<h2>${id}</h2>
 
 </body>
 </html>
