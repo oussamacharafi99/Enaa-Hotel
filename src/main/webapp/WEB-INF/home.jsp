@@ -264,7 +264,7 @@
     		</div>
     		<div class="buttons">
     			
-    			<button>Reserve</button>
+    			<button href="ajouterReserve?id=${r.getId()}">Reserve</button>
     		</div>
     	</div>
 		</c:forEach>
