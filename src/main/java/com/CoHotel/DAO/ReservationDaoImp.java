@@ -1,5 +1,6 @@
 package com.CoHotel.DAO;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -38,8 +39,20 @@ public class ReservationDaoImp implements ReservationDAO {
 	}
 
 	@Override
-	public void reserve() {
-		// TODO Auto-generated method stub
+	public void reserve(Reservation res) {
+		db.loadDatabase();
+		
+        
+        try {
+        	PreparedStatement preparedStatement = db.connexion.prepareStatement("INSERT INTO reservation() VALUES(?, ?, ?);");
+        	preparedStatement.setInt(1, res.getIdRoom());
+        	preparedStatement.setString(2, res.getDateD());
+        	preparedStatement.setString(3, res.getDateF());
+        	preparedStatement.setString(4, res.getNameC());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 		
 	}
 

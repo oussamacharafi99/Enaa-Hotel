@@ -56,6 +56,17 @@
    </servlet-mapping>
 	      
 	<!--  -->
+	<servlet>
+   <servlet-name>ReserveS</servlet-name>
+   <servlet-class>com.CoHotel.servlets.ReserveS</servlet-class>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>ReserveS</servlet-name>
+   <url-pattern>/reserveRoom</url-pattern>
+   </servlet-mapping>
+	      
+	<!--  -->
 	
    <jsp-config>
         <jsp-property-group>

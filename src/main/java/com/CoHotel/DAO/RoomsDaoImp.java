@@ -49,9 +49,10 @@ public class RoomsDaoImp  implements RoomDAO{
 		        Integer n_person = resultat.getInt("n_person");
 		        Integer prix = resultat.getInt("prix");
 		        Boolean dispo = resultat.getBoolean("dispo");
+		        String img = resultat.getString("img");
 		        
 		        
-		        ArrayRooms.add(new Rooms(id, taille, n_person, prix, dispo));
+		        ArrayRooms.add(new Rooms(id, taille, n_person, prix, dispo, img));
 		    }
 		} catch (SQLException e) {
 		}

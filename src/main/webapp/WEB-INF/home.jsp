@@ -29,13 +29,15 @@
               background-size: cover;
 	}
     .hero {
-        background:url("https://i.ibb.co/r6PJ8Jy/3dPop.png");
         background-size: cover;
         width: 100%;
         height: 500px;
         display:flex;
         text-align:center;
-        alig-items:center;
+        align-items:center;
+        border:1px solid black;
+        overflow:auto;
+        padding:60px 5px;
     }
     .header-hero{
     	width:100%;
@@ -48,7 +50,7 @@
     .cities{
     	display:flex;
     	overflow:auto;
-    
+    	border-radius:5px;
     }
     .cities > div {
     	display:flex;
@@ -73,6 +75,124 @@
 			background:#ff44005e;
     }
     
+    .header2-hero{
+    		margin-top:30px;
+    		width:100%;
+    		height:300px;
+    		padding:10px 50px;
+    		display:flex;
+    		justify-content:space-between;
+    		background:url("https://i.ibb.co/Srhf8L5/0o0.png") top right/cover;
+    		
+    }
+    .hero-promo{
+    		background:url("https://i.ibb.co/d793RXJ/Dols.png") no-repeat right/cover;
+    		border-radius:12px;
+    		width:50%;
+    		height:100%;
+    		border:1px solid black;
+    		padding:10px 30px;
+    		box-shadow: 4px 4px 10px #7d7d7d;
+    }
+    .hero-promo > h3{
+   			font-weight:800;
+   			font-size:30px;
+   			text-transform: uppercase;
+   			color:transparent;
+   			text-shadow: 0 0 20px white;
+   			-webkit-text-stroke-width: 1px;
+  			-webkit-text-stroke-color: white;
+   		
+    }
+    .hero-promo-text{
+        padding:20px;
+    	width:40%;
+    }
+    .hero-promo-text > h1{
+    		font-weight:800;
+   			font-size:30px;
+   			text-transform: uppercase;
+   			text-shadow: 4px 4px 10px #7d7d7d;
+  			color:#00000054;
+    }
+    .hero-promo-text > h2{
+    		font-weight:600;
+   			font-size:14px;
+   			text-transform: uppercase;
+   			color:grey;
+    }
+    .hero-promo-text > div{
+    		display:flex;
+    		txet-align-center;
+    		align-items:center;
+    		max-width:80%;
+    		justify-content:space-between;
+    		
+    }
+    .hero-promo-text > div > h3{
+    		font-weight:400;
+   			font-size:50px;
+   			text-transform: uppercase;
+   			color: orangered;
+    }
+    .hero-promo-text > div > button{
+    		padding:10px 20px;
+    		border:2px solid black;
+    		border-radius:10px;
+    		color: black;
+    		background:transparent;
+    		font-weight:600;
+   			font-size:16px;
+   			cursor:pointer;
+   			text-shadow: 4px 4px 10px #7d7d7d;
+    }
+    .section-main{
+    	width:100%;
+    	height:100%;
+    	margin: 0 auto;
+    	border: 1px solid black;
+    	display:flex;
+    	padding:10px;
+    }
+    .card-hero{
+    	max-width:260px;
+    	border: 1px solid black;
+    	max-height:250px;
+    	margin:5px;
+    }
+    .img{
+    	width:70%;
+    	margin: 0 auto;
+    }
+    .img > img{
+    	margin-top:-50px;
+    	border-radius:12px;
+    	height:140px;
+    	box-shadow: 4px 4px 10px #7d7d7d;
+    	
+    }
+    .content{
+    	width:80%;
+    	display:flex;
+    	flex-wrap:wrap;  
+    	justify-content:space-around ;
+    	margin: 5px auto;
+    }
+    .content > h6{
+    	padding:7px;
+    	box-shadow: 4px 4px 10px #7d7d7d;
+    	font-size:12px;
+    	border-radius:8px;
+    }
+    .buttons{
+    }
+    .buttons > button{
+    	padding:7px 15px;
+    	border:1px solid black;
+    	border-radius:8px;
+    	background:transparent;
+    	color:orangered;
+    }
     
 </style>
 
@@ -110,24 +230,44 @@
 
 </div>
 
-<section class="container hero">
 
-	<div class="section-left">
+
+<section class="header2-hero">
 		
-	
-	</div>
-	<div class="section-center">
-		<div class="promo">
-			<img src="" />
-			
-			<div class="content">
-			
-			</div>
+		<div class="hero-promo">
+				<h3>For you <br> all the time</h3>
 		</div>
-	
-	
-	</div>
-	<div class="section-right">
+		<div class="hero-promo-text">
+				<h1>We have promotion in all our hotels in the world</h1>
+				<br>
+				<h2>Book now and benefit from a discount of up to</h2>
+				<div><h3>35%</h3> <button>Reserving</button></div>
+		</div>
+
+</section>
+
+
+<section class="container my-5 hero">
+	<div class="section-main">
+
+		<c:forEach items="${noms}" var="r">
+		<div class="card-hero">
+			<div class="img">
+				<img src="${r.getImg()}" width="100%">
+			</div>
+			
+    		<div class="content">
+    		<h6>Type :  ${r.getTaille()}</h6>
+     		<h6>Person : ${r.getN_person()}</h6>
+    		<h6>Price : ${r.getPrix()}$</h6>
+    		<h6>disponible : ${r.getDispo()}</h6>
+    		</div>
+    		<div class="buttons">
+    			
+    			<button>Reserve</button>
+    		</div>
+    	</div>
+		</c:forEach>
 	
 	
 	</div>
@@ -136,13 +276,5 @@
 </section>
 
 			
-<c:forEach items="${noms}" var=r">
-    <h1>${r.getId()}</h1>
-    <h1>${r.getTaille()}</h1>
-     <h1>${r.getN_person()}</h1>
-    <h1>${r.getPrix()}</h1>
-    <h1>${r.getDispo()}</h1>
-</c:forEach>
-
 </body>
 </html>
