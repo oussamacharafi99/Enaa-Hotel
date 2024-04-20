@@ -2,17 +2,17 @@ package com.CoHotel.Classes;
 
 public class Rooms {
 	
-	private Integer id;
+	private String id;
 	private String Taille;
 	private Integer n_person;
 	private Integer prix;
 	private Boolean dispo;
 	private String img;
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer i) {
+	public void setId(String i) {
 		this.id = i;
 	}
 	public String getTaille() {
@@ -37,7 +37,9 @@ public class Rooms {
 	public Rooms() {
 		
 	}
-	public Rooms(Integer id, String taille, Integer n_person , Integer prix, Boolean dispo , String img) {
+	
+	
+	public Rooms(String id, String taille, Integer n_person , Integer prix, Boolean dispo , String img) {
 		
 		this.id = id;
 		this.Taille = taille;
@@ -46,6 +48,11 @@ public class Rooms {
 		this.dispo = dispo;
 		this.img = img;
 	}
+	public Rooms(String id, Boolean dispo ) {
+		this.id = id;
+		this.dispo = dispo;
+	}
+	
 	public Integer getN_person() {
 		return n_person;
 	}

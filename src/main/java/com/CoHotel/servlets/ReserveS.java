@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.CoHotel.Classes.Reservation;
+import com.CoHotel.Classes.Rooms;
 import com.CoHotel.DAO.ReservationDaoImp;
 
 
@@ -35,7 +36,9 @@ public class ReserveS extends HttpServlet {
 		String idRoom = request.getParameter("idRoom");
 		String dateD = request.getParameter("dateD");
 		String dateF = request.getParameter("dateF");
-		String nameC = request.getParameter("nameC");	
+		String nameC = request.getParameter("nameC");
+		
+		res.update(idRoom);
 		res.reserve(new Reservation(idRoom , dateD , dateF , nameC));
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Reservation.jsp").forward(request, response);
 	}

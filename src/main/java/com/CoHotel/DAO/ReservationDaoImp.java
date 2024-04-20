@@ -63,4 +63,19 @@ public class ReservationDaoImp implements ReservationDAO {
 		return null;
 	}
 
+	@Override
+	public void update(String idRoom) {
+		db.loadDatabase();
+
+        try {
+        	PreparedStatement preparedStatement = db.connexion.prepareStatement("UPDATE room SET dispo = ? WHERE id = ?");
+        	preparedStatement.setBoolean(1, false);
+        	preparedStatement.setString(2, idRoom);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+	}
+
 }

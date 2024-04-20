@@ -44,7 +44,7 @@ public class RoomsDaoImp  implements RoomDAO{
 			ResultSet resultat = statement.executeQuery("SELECT * FROM room");
 		    while (resultat.next()) {
 		    
-		        Integer id = resultat.getInt("id");
+		        String id = resultat.getString("id");
 		        String taille = resultat.getString("taille");
 		        Integer n_person = resultat.getInt("n_person");
 		        Integer prix = resultat.getInt("prix");
