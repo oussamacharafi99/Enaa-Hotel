@@ -30,7 +30,7 @@
 	}
 	.header-img{
 		width:100%;
-		height:550px;
+		height:600px;
 		background:url("https://i.ibb.co/yn6CgGc/kornel-mahl-0-Qky-Eo-TQ6-Pc-unsplash.jpg") no-repeat top right/cover;
 		background-size: cover;
 		text-align:center;
@@ -48,9 +48,9 @@
         display:flex;
         text-align:center;
         align-items:center;
-        overflow:auto;
-        padding:60px 5px;
-        background:white;
+        margin-top:80px;
+        padding:20px 10px;
+        background-color: #333333;
     }
     .header-hero{
     	width:100%;
@@ -164,22 +164,23 @@
     }
     .section-main{
     	width:100%;
-    	height:100%;
     	margin: 0 auto;
     	display:flex;
     	flex-wrap:wrap;
-    	padding:10px;
+    	padding: 10px;
     	text-align:center;
+    	margin-top:70px;
     }
     .card-hero{
     	max-width:250px;
     	max-height:250px;
-    	margin:5px;
+    	margin:5px 10px;
     	border-radius:8px;
 		border-radius:12px;
-		background: 3333337a;
+		background: white;
     	backdrop-filter: blur(15px);
 	    border : 1px solid orangered;
+	    margin-top:80px;
     }
     .img{
     	width:75%;
@@ -249,6 +250,7 @@
     	padding:15px;
     	background:white;
     	border-radius:5px;
+    	margin-bottom:30px;
     }
     form{
     	width:100%;
@@ -295,7 +297,7 @@
 </div>
 
 
-<div class="header-hero container">
+<div class="header-hero container my-5">
 	<h1>Our centers</h1>
 	<div class="cities">
 		<div>
@@ -342,7 +344,7 @@
 
 <h1 class="Troom">Rooms</h1>
 
-<div class="container hero-search">
+<div class="container hero-search my-5">
 
 	<form method="GET" action="Home">
 	    <img src="https://i.ibb.co/SKJ0mQr/Dolphin-s.png" width="80px" />
@@ -354,8 +356,8 @@
 	
 </div>
 
-<section class=" my-5 hero">
-	<div class="section-main">
+<section class=" my-5 hero container">
+	<div class="section-main container">
 		<c:forEach items="${noms}" var="r">
 		<div class="card-hero">
 			<div class="img">

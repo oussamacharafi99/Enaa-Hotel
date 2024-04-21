@@ -39,7 +39,6 @@ public class ReserveS extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReservationDaoImp reserve = new ReservationDaoImp();
-		RoomsDaoImp room = new RoomsDaoImp();
 		
 		List<Reservation> Rroom = reserve.AfficherReservation();
 		
@@ -51,7 +50,6 @@ public class ReserveS extends HttpServlet {
 			String nameC = request.getParameter("nameC");
 			reserve.update(idRoom , dateF);
 			reserve.reserve(new Reservation(idRoom , dateD , dateF , nameC));
-		
 		    request.setAttribute("reserve", Rroom);
 		    this.getServletContext().getRequestDispatcher("/WEB-INF/Reservation.jsp").forward(request, response);	
 		    

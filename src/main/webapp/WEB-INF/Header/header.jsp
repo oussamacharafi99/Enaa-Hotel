@@ -13,9 +13,9 @@
 
 <div class="collapse navbar-collapse" id="mainMenu">
 <ul class="navbar-nav ms-auto">
-	<li class="nav-item"><a class="nav-link" href="" id="a1">Home</a></li>
-	<li class="nav-item"><a class="nav-link" href="">About</a></li>
-	<li class="nav-item"><a class="nav-link" href="">Contact</a></li>
+	<li class="nav-item"><a class="nav-link" href="home" id="a1">Home</a></li>
+	<li class="nav-item"><a class="nav-link" href="reservation">Reservation</a></li>
+	<li class="nav-item"><a class="nav-link" href="">+212 628532671</a></li>
 	<button class="nav-item" id="button">Register</button>
 	<button class="nav-item" id="button">Login</button>
 </ul>
