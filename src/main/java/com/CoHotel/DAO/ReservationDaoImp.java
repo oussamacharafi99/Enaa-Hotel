@@ -64,13 +64,14 @@ public class ReservationDaoImp implements ReservationDAO {
 	}
 
 	@Override
-	public void update(String idRoom) {
+	public void update(String idRoom , String date) {
 		db.loadDatabase();
 
         try {
-        	PreparedStatement preparedStatement = db.connexion.prepareStatement("UPDATE room SET dispo = ? WHERE id = ?");
-        	preparedStatement.setBoolean(1, false);
-        	preparedStatement.setString(2, idRoom);
+        	PreparedStatement preparedStatement = db.connexion.prepareStatement("UPDATE room SET dispo = ?, date = ?  WHERE id = ?");
+        	preparedStatement.setBoolean(1, true);
+        	preparedStatement.setString(2, date);
+        	preparedStatement.setString(3, idRoom);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

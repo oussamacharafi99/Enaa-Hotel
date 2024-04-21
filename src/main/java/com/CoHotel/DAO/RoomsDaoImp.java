@@ -62,13 +62,14 @@ public class RoomsDaoImp  implements RoomDAO{
 	   
 
 	@Override
-	public List<Rooms> search(String type , String n_person1) throws SQLException {
+	public List<Rooms> search(String type , String n_person1 , String date) throws SQLException {
 		List<Rooms> ArrayRooms = new ArrayList<>();
 		
-		String sql = "SELECT * FROM room WHERE (taille = ? OR n_person = ?) ";
+		String sql = "SELECT * FROM room WHERE (taille = ? OR n_person = ? OR date = ?) ";
     	PreparedStatement preparedStatement = db.connexion.prepareStatement(sql);
     	preparedStatement.setString(1,type);
     	preparedStatement.setString(2,n_person1);
+    	preparedStatement.setString(3,date);
         ResultSet resultat = preparedStatement.executeQuery();
 
         while (resultat.next()) {

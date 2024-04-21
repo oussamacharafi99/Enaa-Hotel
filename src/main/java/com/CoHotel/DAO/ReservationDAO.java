@@ -7,7 +7,8 @@ public interface ReservationDAO {
 	public List<Reservation> AfficherReservation();
 	
 	public void reserve(Reservation res);
-	public void update(String idRoom);
+	public void update(String idRoom , String date);
 	
 	public List<Reservation> search();
+
 }

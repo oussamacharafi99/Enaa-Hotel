@@ -30,10 +30,11 @@ public class Home extends HttpServlet {
 		RoomsDaoImp room = new RoomsDaoImp();
 	    String type = request.getParameter("type");
 	    String person = request.getParameter("person");
+	    String date = request.getParameter("dateF");
 	    List<Rooms> Roomss;
 	    try {
-	        if (type != null && !type.isEmpty() || person != null && !person.isEmpty()) {
-	            Roomss = room.search(type , person);
+	        if (type != null && !type.isEmpty() || person != null && !person.isEmpty() || date != null && !date.isEmpty()) {
+	            Roomss = room.search(type , person , date);
 	        } else {
 	            Roomss = room.afficher();
 	        }
