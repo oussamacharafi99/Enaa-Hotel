@@ -44,13 +44,13 @@
     .hero {
         background-size: cover;
         width: 100%;
-        height: 500px;
+        height: 800px;
         display:flex;
         text-align:center;
         align-items:center;
-        border:1px solid white;
         overflow:auto;
         padding:60px 5px;
+        background:white;
     }
     .header-hero{
     	width:100%;
@@ -166,17 +166,20 @@
     	width:100%;
     	height:100%;
     	margin: 0 auto;
-    	border: 1px solid black;
     	display:flex;
+    	flex-wrap:wrap;
     	padding:10px;
+    	text-align:center;
     }
     .card-hero{
-   		 background:white;
-    	max-width:240px;
+    	max-width:250px;
     	max-height:250px;
     	margin:5px;
-    	box-shadow: 4px 4px 10px black;
     	border-radius:8px;
+		border-radius:12px;
+		background: 3333337a;
+    	backdrop-filter: blur(15px);
+	    border : 1px solid orangered;
     }
     .img{
     	width:75%;
@@ -205,24 +208,80 @@
 		color:black;
     	font-size:12px;
     	border-radius:8px;
+    	font-weight:700;
     }
     .buttons{
     	padding:10px;
     }
-    .buttons > a{
-    	padding:7px 15px;
-    	border:2px solid black;
-    	border-radius:8px;
-    	background:transparent;
+    .btn1{
+		background:orangered;
+		color:white;
+		font-weight:500;
+	}
+	.btn1:hover{
+		color:black;
+		border:1px solid orangered;
+	}
+	
+	.hero-search > form > button{
+		border:1px solid orangered;
+		color:orangered;
+		font-weight:500;
+		margin:0 40px;
+	}
+	.hero-search > form > button:hover{
+		color:white;
+		background:orangered;
+	}
+    span{
     	color:orangered;
-    	text-decoration:none;
-    	transition:.6s;
     }
-    .buttons > a:hover{
-    	margin-top:10px;
-    	color:black;
-    	border:2px solid orangered;
+    .Troom{
+    	width:200px;
+    	text-align:center;
+    	color:white;
+    	padding:10px;
+    	margin:0 auto;
+    	font-weight:600;
+    	font-size:50px;
     }
+    .hero-search{
+    	padding:15px;
+    	background:white;
+    	border-radius:5px;
+    }
+    form{
+    	width:100%;
+    	display:flex;
+    	align-items:center;
+    }
+    .hero-search > form > .date-search , .type-search {
+    	width:300px;
+    	border-radius:10px;
+    	padding:10px;
+    	border:1px solid orangered;
+    	margin:5px;
+		cursor:pointer;
+    }
+    .person-search{
+    	width:100px;
+    	border-radius:10px;
+    	padding:10px;
+    	border:1px solid orangered;
+    	margin:5px;
+    }
+    .hero-search > form > img {
+    	margin:0 30px;
+    }
+    .content > div > h3 {
+    	width:30px;
+    	display:flex;
+    	text-align:center;
+    	align-items:center;
+    	padding:2px 18px;
+    }
+    
+    
     
 </style>
 
@@ -234,9 +293,9 @@
 
 	<h1>PARADISE HOTELS</h1>
 </div>
-<section class="container">
 
-<div class="header-hero">
+
+<div class="header-hero container">
 	<h1>Our centers</h1>
 	<div class="cities">
 		<div>
@@ -267,7 +326,7 @@
 
 
 
-<section class="header2-hero">
+<section class="header2-hero container">
 		
 		<div class="hero-promo">
 				<h3>For you <br> all the time</h3>
@@ -281,10 +340,22 @@
 
 </section>
 
+<h1 class="Troom">Rooms</h1>
 
-<section class="container my-5 hero">
+<div class="container hero-search">
+
+	<form method="GET" action="Home">
+	    <img src="https://i.ibb.co/SKJ0mQr/Dolphin-s.png" width="80px" />
+		<input type="date" name="date-search" class="date-search"/>
+		<input type="text" name="type" class="type-search" placeholder="Search By Type" />
+		<input type="number" name="person-search" class="person-search" placeholder="Persons"/>
+		<button type="submit" id="bnt1" class="btn">Search</button>
+	</form>
+	
+</div>
+
+<section class=" my-5 hero">
 	<div class="section-main">
-
 		<c:forEach items="${noms}" var="r">
 		<div class="card-hero">
 			<div class="img">
@@ -293,17 +364,25 @@
 			
     		<div class="content">
     		<div>
-    			<h6>Type :  ${r.getTaille()}</h6>
-     			<h6>Person : ${r.getN_person()}</h6>
+    			<h6>Type :  <span> ${r.getTaille()}</span></h6>
+     			<h6>Person : <span>${r.getN_person()}</span></h6>
     		</div>
     		<div>
-    			<h6>Price : ${r.getPrix()}$</h6>
-    			<h6>disponible : ${r.getDispo()}</h6>
+    			<h6>Price : <span>${r.getPrix()}$</span></h6>
+    			
+    			<c:if test="${r.getDispo() eq true}">
+                        <h3><img src="https://i.ibb.co/4SNTghW/key.png" alt="key" width="20px" height="20px" border="0"></h3>
+                    </c:if>
+                    <c:if test="${r.getDispo() ne true}">
+                       	<h3><img src="https://i.ibb.co/mhpFW76/open.png" alt="open" width="20px" height="20px"  border="0"></h3>
+                    </c:if>
     		</div>
+    		     
+           
     		</div>
     		<div class="buttons">
     			
-    			<a href="ReserveS?img=${r.getImg()}&id=${r.getId()}&type=${r.getTaille()}&prix=${r.getPrix()}">Reserve</a>
+    			<a class="btn btn1" id="send" href="ReserveS?img=${r.getImg()}&id=${r.getId()}&type=${r.getTaille()}&prix=${r.getPrix()}">Reservation</a>
     			
     		</div>
     	</div>
@@ -313,7 +392,6 @@
 	</div>
 	
 	
-</section>
 </section>
 
 			

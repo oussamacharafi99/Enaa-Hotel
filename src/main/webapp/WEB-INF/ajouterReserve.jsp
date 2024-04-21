@@ -10,7 +10,7 @@
 	body{
 		width:100%;
 		height:100vh;
-		background:url("https://i.ibb.co/KVG1X3S/WWW.png") no-repeat top right/cover;
+		background:url("https://i.ibb.co/VB2nC4R/Dolphin.png") no-repeat top right/cover;
 				background-color: #333333; /* Fallback color */
 	}
 	.hero-header{
@@ -95,6 +95,16 @@
 		color:white;
 		border:1px solid orangered;
 	}
+	.btn1{
+		color:white;
+		border:1px solid orangered;
+		background:transparent;
+		font-weight:500;
+	}
+	.btn1:hover{
+		background:orangered;
+		color:white;
+	}
 
 </style>
 </head>
@@ -130,6 +140,7 @@
     </div>
     <br>
     <button type="submit" class="btn">Submit</button>
+    <a class="btn btn1" href="home">Cancel</a>
   </form>
 
 
@@ -144,6 +155,16 @@
 		</div>
 	</div>
 </div>
+<p id="alert">${ alert }<p/>
+
+<script>
+	let isAbleToAdd =  document.getElementById("alert");
+		if(isAbleToAdd.innerHTML == "."){
+			alert("Ce id est deja utiliser saiser un autre id !");
+		}
+		
+	
+</script>
  
 
 

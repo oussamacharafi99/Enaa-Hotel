@@ -62,10 +62,29 @@ public class RoomsDaoImp  implements RoomDAO{
 	   
 
 	@Override
-	public void modifier() {
-		// TODO Auto-generated method stub
+	public List<Rooms> search(String type) throws SQLException {
+		List<Rooms> ArrayRooms = new ArrayList<>();
 		
+		String sql = "SELECT * FROM room WHERE (taille = ?) ";
+    	PreparedStatement preparedStatement = db.connexion.prepareStatement(sql);
+    	preparedStatement.setString(1,type);
+        ResultSet resultat = preparedStatement.executeQuery();
+
+        while (resultat.next()) {
+        	String id = resultat.getString("id");
+	        String taille = resultat.getString("taille");
+	        Integer n_person = resultat.getInt("n_person");
+	        Integer prix = resultat.getInt("prix");
+	        Boolean dispo = resultat.getBoolean("dispo");
+	        String img = resultat.getString("img");
+            
+       
+	        ArrayRooms.add(new Rooms(id, taille, n_person, prix, dispo, img));
+        }
+		
+		return ArrayRooms;
 	}
+
 
 
 }

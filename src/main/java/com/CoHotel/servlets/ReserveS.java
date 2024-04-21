@@ -38,17 +38,37 @@ public class ReserveS extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReservationDaoImp reserve = new ReservationDaoImp();
+		
+		List<Reservation> Rroom = reserve.AfficherReservation();
+		
 		String idRoom = request.getParameter("idRoom");
-		String dateD = request.getParameter("dateD");
-		String dateF = request.getParameter("dateF");
-		String nameC = request.getParameter("nameC");
+		
+		if(Rroom.stream().anyMatch(emp -> emp.getIdRoom().equals(idRoom))) {
+			
+			request.setAttribute("alert",".");
+			request.setAttribute("reserve", Rroom);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterReserve.jsp").forward(request, response);
+			
+		}
+		else {
+			String dateD = request.getParameter("dateD");
+			String dateF = request.getParameter("dateF");
+			String nameC = request.getParameter("nameC");
 		
 		reserve.update(idRoom);
 		reserve.reserve(new Reservation(idRoom , dateD , dateF , nameC));
 		
-        	List<Reservation> Rroom = reserve.AfficherReservation();
 		    request.setAttribute("reserve", Rroom);
 		    this.getServletContext().getRequestDispatcher("/WEB-INF/Reservation.jsp").forward(request, response);	
+		    
+		    
+		}
+		
+		
+		    
+		    
+		  
 	}
+	
 
 }

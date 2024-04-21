@@ -26,25 +26,29 @@ public class Home extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RoomsDaoImp noms = new RoomsDaoImp();
-
-        List<Rooms> Roomss;
-		try {
-			Roomss = noms.afficher();
-			
-	            request.setAttribute("noms", Roomss);
-	            this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
-	    
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("not working !");
-		}
-
+		
+		RoomsDaoImp room = new RoomsDaoImp();
+	    String type = request.getParameter("type");
+	    List<Rooms> Roomss;
+	    try {
+	        if (type != null && !type.isEmpty()) {
+	            Roomss = room.search(type);
+	        } else {
+	            Roomss = room.afficher();
+	        }
+	        request.setAttribute("noms", Roomss);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        System.out.println("Error occurred while fetching rooms!");
+	    }
+	    this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
+	
+	
+		
 	}
 
 
