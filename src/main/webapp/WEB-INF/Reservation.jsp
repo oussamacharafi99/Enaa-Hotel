@@ -10,6 +10,10 @@
 <body>
 <%@ include file="/WEB-INF/Header/header.jsp" %>
 
+<div class="search-hero">
+
+</div>
+
 <c:forEach items="${reserve}" var="r">
     <h1>${r.getIdR()}</h1>
     <h1>${r.getIdRoom()}</h1>

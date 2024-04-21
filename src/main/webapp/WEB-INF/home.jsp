@@ -14,19 +14,32 @@
 					}
 
 				::-webkit-scrollbar-track {
-  					background: white; 
+  					background: #333333; 
 					}
 
 				::-webkit-scrollbar-thumb {
- 					background: black; 
+ 					background: white; 
 					}
 
 				::-webkit-scrollbar-thumb:hover {
   					background: black; 
 					}
      body {
-      		  background-color: white; /* Fallback color */
+      		  background-color: #333333; /* Fallback color */
               background-size: cover;
+	}
+	.header-img{
+		width:100%;
+		height:550px;
+		background:url("https://i.ibb.co/yn6CgGc/kornel-mahl-0-Qky-Eo-TQ6-Pc-unsplash.jpg") no-repeat top right/cover;
+		background-size: cover;
+		text-align:center;
+	}
+	.header-img > h1 {
+		margin-top:200px;
+		font-size:60px;
+		font-Weight:900;
+		color:white;
 	}
     .hero {
         background-size: cover;
@@ -35,16 +48,17 @@
         display:flex;
         text-align:center;
         align-items:center;
-        border:1px solid black;
+        border:1px solid white;
         overflow:auto;
         padding:60px 5px;
     }
     .header-hero{
     	width:100%;
     	text-align:center;
+    	padding:20px 10px;
     }
     .header-hero > h1{
-    	
+    	color:white;
     
     }
     .cities{
@@ -70,9 +84,11 @@
     	align-item:center;
     	cursor:pointer;
     	border-radius:5px;
+    	color:white;
     }
     .cities > div > h2:hover{
 			background:#ff44005e;
+			color:white;
     }
     
     .header2-hero{
@@ -92,7 +108,7 @@
     		height:100%;
     		border:1px solid black;
     		padding:10px 30px;
-    		box-shadow: 4px 4px 10px #7d7d7d;
+    		box-shadow: 4px 4px 10px black;
     }
     .hero-promo > h3{
    			font-weight:800;
@@ -112,8 +128,8 @@
     		font-weight:800;
    			font-size:30px;
    			text-transform: uppercase;
-   			text-shadow: 4px 4px 10px #7d7d7d;
-  			color:#00000054;
+   			text-shadow: 4px 4px 10px black;
+  			color:#ff510070;
     }
     .hero-promo-text > h2{
     		font-weight:600;
@@ -155,20 +171,22 @@
     	padding:10px;
     }
     .card-hero{
-    	max-width:260px;
-    	border: 1px solid black;
+   		 background:white;
+    	max-width:240px;
     	max-height:250px;
     	margin:5px;
+    	box-shadow: 4px 4px 10px black;
+    	border-radius:8px;
     }
     .img{
-    	width:70%;
+    	width:75%;
     	margin: 0 auto;
     }
     .img > img{
     	margin-top:-50px;
     	border-radius:12px;
     	height:140px;
-    	box-shadow: 4px 4px 10px #7d7d7d;
+    	box-shadow: 4px 4px 10px black;
     	
     }
     .content{
@@ -179,9 +197,12 @@
     	margin: 5px auto;
     	margin-top:20px;
     }
-    .content > h6{
+    .content > div{	
+    	display:flex;
+    }
+    .content > div > h6{
     	padding:7px;
-    	box-shadow: 4px 4px 10px #7d7d7d;
+		color:black;
     	font-size:12px;
     	border-radius:8px;
     }
@@ -207,8 +228,13 @@
 
 
 </head>
-<body class="container">
+<body >
+<div class="header-img">
 <%@ include file="/WEB-INF/Header/header.jsp" %>
+
+	<h1>PARADISE HOTELS</h1>
+</div>
+<section class="container">
 
 <div class="header-hero">
 	<h1>Our centers</h1>
@@ -266,14 +292,18 @@
 			</div>
 			
     		<div class="content">
-    		<h6>Type :  ${r.getTaille()}</h6>
-     		<h6>Person : ${r.getN_person()}</h6>
-    		<h6>Price : ${r.getPrix()}$</h6>
-    		<h6>disponible : ${r.getDispo()}</h6>
+    		<div>
+    			<h6>Type :  ${r.getTaille()}</h6>
+     			<h6>Person : ${r.getN_person()}</h6>
+    		</div>
+    		<div>
+    			<h6>Price : ${r.getPrix()}$</h6>
+    			<h6>disponible : ${r.getDispo()}</h6>
+    		</div>
     		</div>
     		<div class="buttons">
     			
-    			<a href="ReserveS?img=${r.getImg()}&id=${r.getId()}&&dispo=${r.getDispo()}">Reserve</a>
+    			<a href="ReserveS?img=${r.getImg()}&id=${r.getId()}&type=${r.getTaille()}&prix=${r.getPrix()}">Reserve</a>
     			
     		</div>
     	</div>
@@ -283,6 +313,7 @@
 	</div>
 	
 	
+</section>
 </section>
 
 			

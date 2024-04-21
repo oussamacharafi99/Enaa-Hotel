@@ -29,7 +29,14 @@
 <style>
 		@import url('https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 		
-		
+		header{
+				position:fixed;
+				top:20px;
+				height:80px;
+			    background: 3333337a;
+    			backdrop-filter: blur(15px);
+    			box-shadow: 4px 4px 50px black;
+		}
 		.nav-link{
 			font-family: "Poppins", sans-serif;
 			padding:10px;
@@ -37,12 +44,12 @@
 			margin:0 3px ;
 			transition:.6s;
 			cursor:pointer;
-			color:#black;
+			color:white;
 			font-size:16px;
 			font-weight:600;
 		}
 		.nav-link:hover,#a1{
-			border-bottom: 5px solid black;
+			border-bottom: 5px solid white;
 			color:orangered;
 		}
 		#logo{
@@ -51,7 +58,7 @@
 		#button{
 			border-radius:5px;
 			background: transparent;
-			border:1px solid black;
+			border:1px solid white;
 			color:orangered;
 			margin:0 3px;
 			cursor:pointer;
@@ -59,7 +66,7 @@
 			font-weight:700;
 		}
 		#button:hover{
-			background:black;
+			background:white;
 			color:orangered;
 			font-weight:700;
 		}
