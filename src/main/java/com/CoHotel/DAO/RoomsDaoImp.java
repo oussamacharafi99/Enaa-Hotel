@@ -22,7 +22,7 @@ public class RoomsDaoImp  implements RoomDAO{
         try {
         	PreparedStatement preparedStatement = db.connexion.prepareStatement("INSERT INTO room(taille, prix, dispo) VALUES(?, ?, ?);");
         	preparedStatement.setString(1, room.getTaille());
-        	preparedStatement.setInt(2, room.getN_person());
+        	preparedStatement.setString(2, room.getN_person());
         	preparedStatement.setInt(3, room.getPrix());
         	preparedStatement.setBoolean(4, room.getDispo());
 
@@ -46,7 +46,7 @@ public class RoomsDaoImp  implements RoomDAO{
 		    
 		        String id = resultat.getString("id");
 		        String taille = resultat.getString("taille");
-		        Integer n_person = resultat.getInt("n_person");
+		        String n_person = resultat.getString("n_person");
 		        Integer prix = resultat.getInt("prix");
 		        Boolean dispo = resultat.getBoolean("dispo");
 		        String img = resultat.getString("img");
@@ -62,18 +62,19 @@ public class RoomsDaoImp  implements RoomDAO{
 	   
 
 	@Override
-	public List<Rooms> search(String type) throws SQLException {
+	public List<Rooms> search(String type , String n_person1) throws SQLException {
 		List<Rooms> ArrayRooms = new ArrayList<>();
 		
-		String sql = "SELECT * FROM room WHERE (taille = ?) ";
+		String sql = "SELECT * FROM room WHERE (taille = ? OR n_person = ?) ";
     	PreparedStatement preparedStatement = db.connexion.prepareStatement(sql);
     	preparedStatement.setString(1,type);
+    	preparedStatement.setString(2,n_person1);
         ResultSet resultat = preparedStatement.executeQuery();
 
         while (resultat.next()) {
         	String id = resultat.getString("id");
 	        String taille = resultat.getString("taille");
-	        Integer n_person = resultat.getInt("n_person");
+	        String n_person = resultat.getString("n_person");
 	        Integer prix = resultat.getInt("prix");
 	        Boolean dispo = resultat.getBoolean("dispo");
 	        String img = resultat.getString("img");

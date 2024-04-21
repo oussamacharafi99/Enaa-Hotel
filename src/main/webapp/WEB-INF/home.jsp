@@ -348,7 +348,7 @@
 	    <img src="https://i.ibb.co/SKJ0mQr/Dolphin-s.png" width="80px" />
 		<input type="date" name="date-search" class="date-search"/>
 		<input type="text" name="type" class="type-search" placeholder="Search By Type" />
-		<input type="number" name="person-search" class="person-search" placeholder="Persons"/>
+		<input type="number" name="person" class="person-search" placeholder="Persons"/>
 		<button type="submit" id="bnt1" class="btn">Search</button>
 	</form>
 	

@@ -4,7 +4,7 @@ public class Rooms {
 	
 	private String id;
 	private String Taille;
-	private Integer n_person;
+	private String n_person;
 	private Integer prix;
 	private Boolean dispo;
 	private String img;
@@ -39,7 +39,7 @@ public class Rooms {
 	}
 	
 	
-	public Rooms(String id, String taille, Integer n_person , Integer prix, Boolean dispo , String img) {
+	public Rooms(String id, String taille, String n_person , Integer prix, Boolean dispo , String img) {
 		
 		this.id = id;
 		this.Taille = taille;
@@ -53,10 +53,10 @@ public class Rooms {
 		this.dispo = dispo;
 	}
 	
-	public Integer getN_person() {
+	public String getN_person() {
 		return n_person;
 	}
-	public void setN_person(Integer n_person) {
+	public void setN_person(String n_person) {
 		this.n_person = n_person;
 	}
 	public String getImg() {
